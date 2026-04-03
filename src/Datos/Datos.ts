@@ -7,6 +7,6 @@ export const Categoria : Datos[] = [
     {id : 1, Categoria : 'Alimentacion'},
     {id : 2, Categoria : 'Ejercicio'},
 
-
+ 
 ]
      

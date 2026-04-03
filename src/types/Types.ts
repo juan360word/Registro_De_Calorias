@@ -5,3 +5,10 @@
     Categoria : string
 
 }
+
+export type DatosExtra = {
+        id : string,
+        Categoria : number,
+        name : string,
+        Calorias: number
+}
