@@ -1,75 +1,58 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + Tailwind + useReduce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Registro de calorias
 
-Currently, two official plugins are available:
+➡️ Registras tus calorias Ganadas o Quemadas 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# Demostraciones
 
-## React Compiler
+<img width="1430" height="931" alt="Captura de pantalla 2026-04-05 a la(s) 10 39 38 a m" src="https://github.com/user-attachments/assets/a1ebcba0-23ee-42e1-97ef-57ad70a7f68a" />
+## -------------------
+<img width="1329" height="822" alt="Captura de pantalla 2026-04-05 a la(s) 10 40 59 a m" src="https://github.com/user-attachments/assets/a34677e7-3f05-499c-aab5-5fe3311836a5" />
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-Note: This will impact Vite dev & build performances.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+##  Funcionalidades
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Agregar registros** — añade alimentos o actividades con su respectivo valor calórico
+- **Editar registros** — corrige un registro sin tener que borrarlo y crearlo de nuevo
+- **Eliminar registros** — borra entradas individuales fácilmente
+- **Reiniciar todo** — limpia todos los registros con un solo botón
+- **Balance calórico** — visualiza en tiempo real cuántas calorías ganas o pierdes según tu actividad
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+
+##  Cómo correrlo localmente
+
+```bash
+# 1. Clona el repositorio
+git clone https://github.com/juan360word/ContadorCalorias.git
+
+# 2. Entra a la carpeta
+cd ContadorCalorias
+
+# 3. Instala dependencias
+npm install
+
+# 4. Corre el servidor de desarrollo
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📚 Lo que aprendí
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Manejo de estado complejo con `useReducer`
+- Tipado de acciones y estado con TypeScript
+- Componentización y props en React
+- Diseño responsivo con Tailwind CSS
+- Uso bien del useState
+- Uso bien de los componente
+
+---
+
+## 👤 Autor
+
+**Juan David Serrato Alvarado** — [@juan360word](https://github.com/juan360word)
