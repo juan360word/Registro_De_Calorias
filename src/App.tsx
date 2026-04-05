@@ -4,6 +4,7 @@ import Header from "./Componente/Header"
 import Formulario from "./Componente/Formulario"
 import { ActividadReducer, StateInicial } from "./Reduce/Actividades_Reduce"
 import CuadroGuardado from "./Componente/CuadroGuardado"
+import TotalCalo from '../src/Componente/TotalCalo'
 
 function App() {
     const [state, dispatch] = useReducer(ActividadReducer, StateInicial)
@@ -18,6 +19,7 @@ function App() {
         <>
             <Header  state={state} dispatch={dispatch}/>
             <Formulario dispatch={dispatch} state={state}/>
+            <TotalCalo Variable1={state.Variable1}/>
             <CuadroGuardado variable1={state.Variable1} dispatch={dispatch}/>
         </>
     )

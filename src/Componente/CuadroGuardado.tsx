@@ -18,7 +18,7 @@ function CuadroGuardado({variable1,dispatch} : variable1actividades) {
     <>
         
         <h1 className="text-5xl text-center  text-olive-700 p-8 font-black transition delay-150  duration-300 ease-in-out hover:text-lime-600 hover:scale-105">
-            Muestra de lo Guardado
+            Muestra de lo Registrado
         </h1>
        
         { variable1.length === 0 ? <p className="mt-6  flex justify-center ">Aun no has Ingresado nada...</p>:
