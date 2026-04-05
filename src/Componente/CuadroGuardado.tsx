@@ -4,15 +4,15 @@
 
 import type { DatosExtra } from "../types/Types"
 import { Categoria } from "../Datos/Datos"
-
-
+import {PencilSquareIcon,XCircleIcon} from '@heroicons/react/24/outline'
+import type { ActividadActions } from "../Reduce/Actividades_Reduce"
 
 type variable1actividades = {
     variable1: DatosExtra[]
-    
+    dispatch : React.Dispatch<ActividadActions>
 }
 
-function CuadroGuardado({variable1} : variable1actividades) {
+function CuadroGuardado({variable1,dispatch} : variable1actividades) {
 
   return (
     <>
@@ -21,9 +21,10 @@ function CuadroGuardado({variable1} : variable1actividades) {
             Muestra de lo Guardado
         </h1>
        
-        {variable1.map(item =>(
-            <div key={item.id} className="max-w-3xl mx-auto mt-16  font-black text-white bg-black p-5 rounded-lg ">
-                <div className="flex justify-between">
+        { variable1.length === 0 ? <p className="mt-6  flex justify-center ">Aun no has Ingresado nada...</p>:
+        variable1.map(item =>(
+            <div key={item.id} className="  max-w-3xl  mx-auto mt-16  font-black text-white bg-black p-5 rounded-lg ">
+                <div className="flex  justify-between">
                     <p className={`text-2xl uppercase ${item.Categoria === 1  ? 'text-orange-300' : 'text-red-400'}`}>
                          {Categoria.find(cat => cat.id === item.Categoria)?.Categoria ?? ''}
                     </p>
@@ -36,8 +37,14 @@ function CuadroGuardado({variable1} : variable1actividades) {
                     </p>
                 </div>
 
-                <div>
-
+                <div className="flex items-center gap-5">
+                    <button onClick={() => dispatch({ type: 'ActividadEnviada', payload: { id: item.id } })}>
+                        <PencilSquareIcon className="h-8 w-8  transition duration-200 hover:text-green-400 cursor-pointer"/>
+                    </button>
+                    <button onClick={() => dispatch({ type: 'Eliminar', payload: { id: item.id } })}>
+                        <XCircleIcon className="h-8 w-8 transition duration-200 hover:text-red-500 cursor-pointer"/>
+                    </button>
+                    
                 </div>
             </div>
        

@@ -1,12 +1,14 @@
 // Importaciones
 import { Categoria } from "../Datos/Datos"
-import {  type ActividadActions } from "../Reduce/Actividades_Reduce"
+import {  type ActividadActions, type DatoActividad } from "../Reduce/Actividades_Reduce"
 import type { DatosExtra } from "../types/Types"
-import { useState, type Dispatch } from "react"
+import { useState, type Dispatch,useEffect } from "react"
 import {v4 as uuidv4} from 'uuid'
+
 
 type FormsProp = {
     dispatch: Dispatch<ActividadActions>
+    state: DatoActividad
 }
 
  export const Informacion = {
@@ -16,11 +18,19 @@ type FormsProp = {
         Calorias: 0
 }
 
-function Formulario({ dispatch }: FormsProp) {
+function Formulario({ dispatch,state }: FormsProp) {
 
     const [Actividad,SetActividad] = useState<DatosExtra>(
         Informacion
     )
+
+
+    useEffect(() => {
+        if(state.ActividadID){
+            const SeleccionActividad = state.Variable1.filter(stateItem => stateItem.id === state.ActividadID)[0]
+            SetActividad(SeleccionActividad)
+        }
+    },[state.ActividadID])
 
     const Handle = (e : React.ChangeEvent<HTMLSelectElement> |  React.ChangeEvent<HTMLInputElement>) => {
         
@@ -51,7 +61,8 @@ function Formulario({ dispatch }: FormsProp) {
     
   return (
    <>
-   <section className="bg-[#89E900] py-30 px-5">
+   
+   <section className=" bg-linear-to-r from-blue-600 to-cyan-400  max-w-6xl rounded-3xl mt-16 mx-auto py-30 px-5">
       <div className=" mx-auto max-w-5xl">
       <form  onSubmit={Envio} className="p-10 space-y-5 bg-white shadow-white rounded-4xl">
         <div className="grid grid-cols-2 gap-4">
@@ -77,7 +88,7 @@ function Formulario({ dispatch }: FormsProp) {
         </div>
 
         <input type="submit" disabled={!ValidacionActividad()} className=" bg-white  rounded-3xl border w-full  cursor-pointer hover:bg-[#222222] transition duration-400 ease-in hover:text-white "
-        value={Actividad.Categoria === 1 ? ' Guardar Comida ' : 'Guardar Ejericio'}
+        value={Actividad.Categoria === 1 ? ' Registrar Comida ' : 'Registrar Ejercicio'}
         />
       </form>
       </div>
